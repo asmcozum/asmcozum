@@ -1,8 +1,8 @@
 # ASM Çözüm Yardımcısı
 
-> HYP / SINA için aile hekimliği yardımcı uygulaması
-> SGK Rapor yardımcı uygulaması
-> Hekimler için hızlı yazdırma uygulaması
+- **HYP / SINA için aile hekimliği yardımcı uygulaması**
+- **SGK Rapor yardımcı uygulaması**
+- **Hekimler için hızlı yazdırma uygulaması**
 
 ## Hakkında
 

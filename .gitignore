@@ -1,35 +1,10 @@
-# ============================================================================
-#  .gitignore — RELEASE-ONLY repo
-#
-#  GitHub'a YALNIZCA sunlar gider:
-#    /.gitignore
-#    /README.md
-#    /dist/windows/installer/asm-cozum-setup.exe
-#    /dist/windows/helper/asm-cozum-helper.exe
-#    /dist/extensions/**          (eklenti dosyalarinin tamami)
-#
-#  HER SEY ignore edilir — kaynak kod, helper internal, server, node_modules,
-#  alt-klasor README'leri, .env, sertifika, lisans key, derleme artifact'leri.
-#
-#  KRITIK: Tum whitelist pattern'leri / ile baslar (root-anchored).
-#  "/README.md" sadece kok dosyayi acar; "README.md" her dizinde eslesirdi
-#  (helper/README.md, node_modules/**/README.md vb. yanlislikla acilirdi).
-# ============================================================================
-
-# 1. Default: tum dosyalari ignore et (recursive)
 *
-
-# 2. Root'taki whitelist — / prefix ile sadece kok dosyalar
 !/.gitignore
 !/README.md
-
-# 3. dist/ klasor hiyerarşisi (parent traversal)
 !/dist/
 /dist/*
 !/dist/windows/
 !/dist/extensions/
-
-# 4. dist/windows/ -- sadece installer ve helper exe'leri whitelist
 /dist/windows/*
 !/dist/windows/installer/
 !/dist/windows/helper/
@@ -37,6 +12,4 @@
 /dist/windows/helper/*
 !/dist/windows/installer/asm-cozum-setup.exe
 !/dist/windows/helper/asm-cozum-helper.exe
-
-# 5. dist/extensions/ -- tum icerik (eklenti dosyalari) whitelist
 !/dist/extensions/**
