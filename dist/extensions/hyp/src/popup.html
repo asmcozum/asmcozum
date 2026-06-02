@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<!-- ───────── Header: logo + ad + ayarlar ───────── -->
+<div class="header">
+  <img class="header-logo" src="../icons/icon48.png" alt="logo">
+  <div class="header-text">
+    <h1 id="prog-name"></h1>
+    <div class="header-sub" id="prog-tagline"></div>
+  </div>
+  <button class="btn-ayarlar" id="btn-ayarlar" title="Ayarlar">⚙</button>
+</div>
+
+<!-- ───────── Status: helper bağlantı + sürüm ───────── -->
+<div class="status-bar" id="status-bar">
+  <div class="dot yok" id="status-dot"></div>
+  <span class="status-label">Yardımcı Uygulama: <span id="status-metin">Bağlanıyor...</span></span>
+  <span class="version-tag" id="helper-version">—</span>
+</div>
+
+<!-- ───────── Lisans bilgisi kartı ───────── -->
+<div class="info-card" id="lisans-kart">
+  <div class="info-card-icon">⚡</div>
+  <div class="info-card-content">
+    <div class="info-card-label">Lisans Durumu</div>
+    <div class="info-card-value" id="lisans-durum">—</div>
+    <div class="info-card-detail" id="lisans-detay"></div>
+  </div>
+</div>
+
+<!-- ───────── Hızlı erişim ───────── -->
+<div class="butonlar">
+  <button class="btn-sina" id="btn-sina">→ SINA'ya Git</button>
+  <button class="btn-hyp"  id="btn-hyp">→ HYP'ye Git</button>
+</div>
+
+<!-- ───────── İletişim ve destek ───────── -->
+<div class="iletisim-bolum">
+  <div class="iletisim-baslik">📞 Yardım & İletişim</div>
+  <div class="iletisim-grid">
+    <div class="iletisim-satir">
+      <span class="iletisim-key">Firma:</span>
+      <span class="iletisim-val" id="co-name"></span>
+    </div>
+    <div class="iletisim-satir">
+      <span class="iletisim-key">Tel:</span>
+      <a class="iletisim-val iletisim-link" id="co-phone-link"><span id="co-phone"></span></a>
+    </div>
+    <div class="iletisim-satir">
+      <span class="iletisim-key">E-posta:</span>
+      <a class="iletisim-val iletisim-link" id="co-email-link"><span id="co-email"></span></a>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
