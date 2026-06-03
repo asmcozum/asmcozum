@@ -13,3 +13,6 @@
 !/dist/windows/installer/asm-cozum-setup.exe
 !/dist/windows/helper/asm-cozum-helper.exe
 !/dist/extensions/**
+Thumbs.db
+.DS_Store
+desktop.ini
