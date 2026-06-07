@@ -8,11 +8,10 @@
 
 ASM Çözüm Yardımcısı, aile hekimliği uygulamalarında zaman ve emek
 tasarrufu sağlamak amacıyla geliştirilmiş profesyonel bir yardımcı
-yazılımdır. Sağlık Bakanlığı'nın HYP ve SINA sistemleriyle uyumlu çalışır.
+yazılımdır. 
 
 Yazılım, aile hekimliği biriminin günlük operasyon akışlarını kolaylaştıran
-araçlar sunar; veri görüntüleme, izlem hatırlatma ve otomasyon
-fonksiyonları ile tarama hedeflerinin takip edilmesine yardımcı olur.
+araçlar sunar; tarama hedeflerinin takip edilmesine yardımcı olur.
 
 ## Kurulum
 
@@ -22,12 +21,11 @@ hâle gelir; lisans yönetimi yazılım üzerinden takip edilir.
 
 ## Lisans
 
-Bu yazılım ticari bir üründür. Kullanım koşulları, lisans sözleşmesi ve
-KVKK aydınlatma metni kurulum sürecinde sunulur ve onaylanır.
+Kullanım koşulları ve KVKK aydınlatma metni kurulum sürecinde sunulur 
+ve onaylanır.
 
-© Ayşe Karakaş ASM Çözüm Yazılım Hizmetleri — Tüm hakları saklıdır.
+© ASM Çözüm
 
 ## İletişim
 
 - **E-posta:** asmcozum@gmail.com
-- **Adres:** İskender Mah. Hasan Fehmi Cd. No:34 A Blok D:5 Merkez/Isparta
