@@ -3,7 +3,7 @@
   "name": "ASM Çözüm Yardımcısı",
   "version": "1.0.0",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuskTOmMI9hTVuKy6LskBAy3TuJydtU9GIrNYwV0K9P9YY9EBNYhISEjQjFvfgSGEAxk1EMuyhNX7dP/5/oJGqWWX8QiqCF8m06yep1/ge/oGQwBwwFt0dmqhZ3MOVIb6WEt0rCObfPARxRyvkmsgb7UpQbbm1pw2p7iWGuyMXtovXIlE/uPyBRacEgfVoxMo+LBnnWPwIy5g2DU65+Qe3BDbsShnyQ8XDGDC2MWv9we6hIDVTVVgbGadrZV8uc6fpJd3mTB+gCeQLQVpi1JIW238Pl6XtwCD6VEWldjf5pLkzixs92SlTVtu8MhkcGLv3qDxFAYAuaUJK/V6gvM2SQIDAQAB",
-  "description": "Tarama/İzleme hızlandırma + Anlık HYP hedefleri + Davet / SMS otomasyonu + KHT Hesaplama ve daha fazlaası...",
+  "description": "Tarama/İzleme hızlandırma + Anlık HYP hedefleri + Davet / SMS yardımcısı + KHT Hesaplama ve daha fazlaası...",
   "permissions": [
     "storage",
     "alarms",
