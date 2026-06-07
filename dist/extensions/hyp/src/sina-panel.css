@@ -1,0 +1,264 @@
+/* ============================================================
+   SINA Yardımcı Panel — Sağ Orta Kayar Panel Stilleri
+   ============================================================ */
+
+/* ---------- Toggle Butonu — sağ kenar, dikey orta ---------- */
+#sina-panel-toggle {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  width: 28px;
+  height: 56px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, background 0.2s;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+}
+#sina-panel-toggle:hover { filter: brightness(0.85); }
+/* Panel açıkken sola kayar; translateY(-50%) korunmalı */
+/* #sina-panel-toggle.panel-acik transform JS tarafından dinamik olarak set edilir (genişlik ayardan okunur) */
+
+/* ---------- Ana Panel ---------- */
+#sina-panel {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 260px;      /* JS storage'dan okunup inline override edilir */
+  height: auto;
+  max-height: 60vh;
+  background: #fff;
+  border-left: 2px solid #e8ecf0;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 99997;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 13px;
+  color: #2c3e50;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  transform: translateY(-50%) translateX(100%);
+  transition: transform 0.3s ease;
+}
+#sina-panel.panel-acik { transform: translateY(-50%) translateX(0); }
+#sina-panel.tema-expired { border-left-color: #c0392b; }
+
+/* ---------- Header ---------- */
+#sina-panel-header {
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  /* Panel sol-üst köşesiyle aynı ovallik (sol-alt zaten yuvarlaktı) */
+  border-radius: 8px 0 0 0;
+}
+#sina-panel-header.tema-normal     { background: #2980b9; }
+#sina-panel-header.tema-yukleniyor { background: #2980b9; }
+#sina-panel-header.tema-hata       { background: #e74c3c; }
+#sina-panel-header.tema-tamam      { background: #27ae60; }
+#sina-panel-header.tema-expired    { background: #c0392b; }
+#sina-panel-header.tema-giris      { background: #636e72; }
+
+.sina-header-ikon   { font-size: 17px; flex-shrink: 0; }
+.sina-header-baslik {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Body ---------- */
+#sina-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+}
+#sina-panel-body::-webkit-scrollbar       { width: 5px; }
+#sina-panel-body::-webkit-scrollbar-track { background: #f5f5f5; }
+#sina-panel-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+/* ---------- Footer ---------- */
+#sina-panel-footer {
+  padding: 10px 14px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ---------- Butonlar ---------- */
+.sina-btn {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: filter 0.15s;
+  box-sizing: border-box;
+}
+.sina-btn:hover { filter: brightness(0.9); }
+.sina-btn-mavi    { background: #2980b9; color: #fff; }
+.sina-btn-yesil   { background: #27ae60; color: #fff; }
+.sina-btn-kirmizi { background: #e74c3c; color: #fff; }
+.sina-btn-koyu-k  { background: #c0392b; color: #fff; }
+.sina-btn-gri     { background: #636e72; color: #fff; }
+
+/* ---------- İlerleme Kartı ---------- */
+.sina-progress-kart {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #eee;
+}
+.sina-progress-kart:last-child { margin-bottom: 0; }
+.sina-progress-ust {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 11px;
+  color: #888;
+}
+.sina-progress-yuzde { font-weight: 700; color: #27ae60; }
+.sina-progress-bar {
+  background: #e0e0e0;
+  border-radius: 3px;
+  height: 7px;
+  overflow: hidden;
+}
+.sina-progress-dolu {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s;
+}
+.sina-progress-alt {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+/* ---------- Spinner ---------- */
+.sina-spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 34px 0;
+  gap: 12px;
+  color: #999;
+  font-size: 12px;
+}
+.sina-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #2980b9;
+  border-radius: 50%;
+  animation: sina-spin 0.8s linear infinite;
+}
+@keyframes sina-spin { to { transform: rotate(360deg); } }
+
+/* ---------- Expired (süresi doldu) ---------- */
+.sina-expired-ikon    { font-size: 40px; text-align: center; margin-bottom: 12px; }
+.sina-expired-baslik  {
+  font-size: 15px; font-weight: 700; color: #c0392b;
+  text-align: center; margin-bottom: 8px;
+}
+.sina-expired-mesaj {
+  font-size: 12px; color: #666;
+  text-align: center; line-height: 1.6; margin-bottom: 6px;
+}
+
+/* ---------- Giriş Sayfası ---------- */
+.sina-giris-ikon  { font-size: 38px; text-align: center; margin-bottom: 14px; }
+.sina-giris-mesaj {
+  font-size: 13px; color: #555;
+  text-align: center; line-height: 1.7; font-weight: 500;
+}
+
+/* ---------- Yardımcı ---------- */
+.sina-satir-pill {
+  font-size: 10px;
+  background: rgba(255,255,255,0.22);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.sina-durum-satir {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: #888;
+}
+.sina-hata-mesaj {
+  color: #888;
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ---------- Ay/Yıl Seçici (Bekle durumu) ---------- */
+#sina-panel .sina-sec-wrap {
+  padding: 4px 0 8px;
+}
+#sina-panel .sina-sec-satir {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 10px !important;
+}
+#sina-panel .sina-sec-etiket {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #555 !important;
+  flex-shrink: 0 !important;
+  width: 30px !important;
+}
+#sina-panel .sina-sec-input {
+  flex: 1 !important;
+  margin-left: 8px !important;
+  padding: 5px 8px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-family: 'Poppins', Arial, sans-serif !important;
+  color: #2c3e50 !important;
+  background: #fff !important;
+  cursor: pointer !important;
+  outline: none !important;
+  transition: border-color 0.15s !important;
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+}
+#sina-panel .sina-sec-input:focus { border-color: #2980b9 !important; }

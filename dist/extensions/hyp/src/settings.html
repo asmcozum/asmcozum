@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ayarlar — ASM Çözüm</title>
+<link rel="stylesheet" href="settings.css">
+</head>
+<body>
+
+<div class="page-wrap">
+
+<!-- Sol: logo + brand (web panel login-left) -->
+<div class="page-left">
+  <div class="logo-wrap">
+    <img class="logo-img" src="../images/asmcozum400.jpg" alt="ASM Çözüm">
+  </div>
+  <div class="brand">
+    <h2>ASM Çözüm Yardımcısı</h2>
+    <div class="brand-divider"></div>
+    <div class="brand-sub">Ayarlar &amp; Yapılandırma</div>
+  </div>
+  <span class="version-tag" id="versiyon-metin"></span>
+</div>
+
+<!-- Sağ: ayarlar içeriği (web panel login-right) -->
+<div class="page-right">
+<div class="sayfa">
+
+  <!-- HYP Panel Ayarları -->
+  <div class="bolum">
+    <div class="bolum-baslik">📋 HYP Panel Ayarları</div>
+
+    <div class="satir">
+      <span class="satir-ikon">👁️</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Varsayılan açık</div>
+        <div class="satir-aciklama">HYP sayfası açıldığında panel otomatik görünsün</div>
+      </div>
+      <div class="satir-kontrol">
+        <label class="toggle">
+          <input type="checkbox" id="panel-acik">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="satir">
+      <span class="satir-ikon">📏</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Panel genişliği</div>
+        <div class="satir-aciklama">Yan panel genişliği (280–500 piksel)</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="range-wrap">
+          <input type="range" class="range-input" id="panel-genislik" min="280" max="500" step="10">
+          <span class="range-val" id="panel-genislik-val">360px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINA Panel Ayarları -->
+  <div class="bolum">
+    <div class="bolum-baslik">📊 SINA Panel Ayarları</div>
+
+    <div class="satir">
+      <span class="satir-ikon">👁️</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Varsayılan açık</div>
+        <div class="satir-aciklama">SINA sayfası açıldığında panel otomatik görünsün</div>
+      </div>
+      <div class="satir-kontrol">
+        <label class="toggle">
+          <input type="checkbox" id="sina-panel-acik">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="satir">
+      <span class="satir-ikon">📏</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Panel genişliği</div>
+        <div class="satir-aciklama">SINA yan panel genişliği (220–420 piksel)</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="range-wrap">
+          <input type="range" class="range-input" id="sina-panel-genislik" min="220" max="420" step="10">
+          <span class="range-val" id="sina-panel-genislik-val">260px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uyarı Eşikleri -->
+  <div class="bolum">
+    <div class="bolum-baslik">🎯 Eşik Ayarları</div>
+    <div class="esik-icerik">
+      <div class="esik-tablo">
+        <div class="esik-tablo-baslik">
+          <span class="esik-ad">Özet Yüzdeler</span>
+          <span class="esik-tb-deg">Alt&nbsp;%</span>
+		  <span class="esik-tb-deg">Üst&nbsp;%</span>
+        </div>
+        <div class="esik-satir">
+          <span class="esik-ad">HYP</span>
+          <input type="number" class="num-input esik-input" id="ozet-hyp-mavi"  min="0" max="100">
+		  <input type="number" class="num-input esik-input" id="ozet-hyp-yesil" min="1" max="100">
+        </div>
+        <div class="esik-satir">
+          <span class="esik-ad">KHT</span>
+          <input type="number" class="num-input esik-input" id="ozet-kht-mavi"  min="0" max="100">
+		  <input type="number" class="num-input esik-input" id="ozet-kht-yesil" min="1" max="100">
+        </div>
+      </div>
+      <div class="esik-tablo">
+        <div class="esik-tablo-baslik">
+          <span class="esik-ad">Tarama / İzlem</span>
+          <span class="esik-tb-deg">Alt&nbsp;%</span>
+          <span class="esik-tb-deg">Üst&nbsp;%</span>
+        </div>
+        <div id="esik-tablo"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Otomatik SINA Veri Çekme -->
+  <div class="bolum">
+    <div class="bolum-baslik">📥 Otomatik SINA Veri Çekme</div>
+
+    <div class="satir">
+      <span class="satir-ikon">⏰</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Otomatik veri çekme saati</div>
+        <div class="satir-aciklama">SINA pozitif performans verisi her gün bu saatte otomatik çekilir (açık bir SINA sekmesi gerekir)</div>
+      </div>
+      <div class="satir-kontrol">
+        <!-- value = gece yarısından itibaren dakika (HH*60+MM) -->
+        <select class="sel-input" id="sina-saati">
+          <option value="510">08:30</option>
+          <option value="570">09:30</option>
+          <option value="630">10:30</option>
+          <option value="690">11:30</option>
+          <option value="750" selected>12:30</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uygulama Güncellemesi -->
+  <div class="bolum">
+    <div class="bolum-baslik">🔄 Uygulama Güncellemesi</div>
+
+    <div class="satir">
+      <span class="satir-ikon">🔔</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Güncelleme bildirimi</div>
+        <div class="satir-aciklama">Yeni sürüm indirilirken bilgi banner'ı göster (güncelleme kapalıyken de otomatik kurulur, yalnızca bildirim gizlenir)</div>
+      </div>
+      <div class="satir-kontrol">
+        <label class="toggle">
+          <input type="checkbox" id="guncelleme-bildirim" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bağlantı & Durum -->
+  <div class="bolum">
+    <div class="bolum-baslik">🔌 Bağlantı Durumu</div>
+
+    <div class="satir">
+      <span class="satir-ikon">🖥️</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Helper bağlantısı</div>
+        <div class="satir-aciklama">Yerel Go yardımcı uygulaması</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="durum-satir">
+          <div class="durum-nokta bekleniyor" id="helper-durum-nokta"></div>
+          <span class="durum-metin" id="helper-durum-metin">Kontrol ediliyor...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bilgi-satir">
+      <span class="bilgi-anahtar">Helper versiyonu</span>
+      <span class="bilgi-deger" id="helper-versiyon">—</span>
+    </div>
+    <div class="bilgi-satir">
+      <span class="bilgi-anahtar">Son SINA güncellemesi</span>
+      <span class="bilgi-deger" id="son-sina-guncelleme">—</span>
+    </div>
+    <div class="bilgi-satir">
+      <span class="bilgi-anahtar">Kayıtlı SINA ayları</span>
+      <span class="bilgi-deger" id="sina-ay-sayisi">—</span>
+    </div>
+  </div>
+
+  <!-- Hızlı Yazdırma -->
+  <div class="bolum">
+    <div class="bolum-baslik">🖨️ Hızlı Yazdırma</div>
+
+    <div class="satir">
+      <span class="satir-ikon">📄</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Öntanımlı Genel Yazıcı</div>
+        <div class="satir-aciklama">Standart belgeler için kullanılacak yazıcı</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="yazici-slot-kontrol">
+          <span class="yazici-sec-ad bos" id="yazici-genel-ad">Seçilmedi</span>
+          <button class="btn-degistir" data-slot="genel">Değiştir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="satir">
+      <span class="satir-ikon">📋</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">A5 Yazıcısı</div>
+        <div class="satir-aciklama">A5 boyutlu çıktılar için yazıcı</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="yazici-slot-kontrol">
+          <span class="yazici-sec-ad bos" id="yazici-a5-ad">Seçilmedi</span>
+          <button class="btn-degistir" data-slot="a5">Değiştir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="satir">
+      <span class="satir-ikon">🏷️</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Barkod Yazıcısı</div>
+        <div class="satir-aciklama">Barkod / etiket yazıcısı</div>
+      </div>
+      <div class="satir-kontrol">
+        <div class="yazici-slot-kontrol">
+          <span class="yazici-sec-ad bos" id="yazici-barkod-ad">Seçilmedi</span>
+          <button class="btn-degistir" data-slot="barkod">Değiştir</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Veri Yönetimi -->
+  <div class="bolum bolum-tehlike">
+    <div class="bolum-baslik">🗑 Veri Yönetimi</div>
+
+    <div class="satir">
+      <span class="satir-ikon">📊</span>
+      <div class="satir-metin">
+        <div class="satir-etiket">Yerel Tarama/İzlem Verileri</div>
+        <div class="satir-aciklama">Kayıtlı tüm veriler silinir, geri alınamaz</div>
+      </div>
+      <div class="satir-kontrol">
+        <button class="btn btn-sil-veri" id="btn-sina-sil">🗑 Sil</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kaydet -->
+  <div class="kaydet-wrap">
+    <span class="bildirim" id="bildirim" role="status" aria-live="polite"></span>
+    <button class="btn btn-sifirla" id="btn-sifirla">↺ Sıfırla</button>
+    <button class="btn btn-kaydet" id="btn-kaydet">✓ Kaydet</button>
+  </div>
+
+</div><!-- /sayfa -->
+</div><!-- /page-right -->
+</div><!-- /page-wrap -->
+
+<!-- Yazıcı Seçim Modalı -->
+<div class="modal-overlay" id="yazici-modal">
+  <div class="modal-kart">
+    <div class="modal-baslik">
+      <span class="modal-baslik-ikon">🖨️</span>
+      <div class="modal-baslik-metin">
+        <div class="modal-baslik-baslik" id="modal-baslik-tur">Yazıcı Seç</div>
+        <div class="modal-baslik-alt" id="modal-baslik-alt">Sisteminizden bir yazıcı seçin</div>
+      </div>
+      <button class="modal-kapat" id="modal-kapat-btn">✕</button>
+    </div>
+    <div class="modal-arama">
+      <input type="text" id="modal-arama-input" placeholder="Yazıcı ara...">
+    </div>
+    <div class="yazici-liste" id="yazici-liste"></div>
+  </div>
+</div>
+
+<script src="settings.js"></script>
+</body>
+</html>

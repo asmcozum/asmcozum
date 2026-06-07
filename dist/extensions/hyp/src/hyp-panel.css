@@ -1,0 +1,412 @@
+/* ============================================================
+   HYP Tarama Takip — Panel Stilleri (Beyaz Tema)
+   ============================================================ */
+
+/* ---------- Toggle Butonu — Panel orta hizasında ---------- */
+#hyp-panel-toggle-btn {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+  /* background: JS tarafından dinamik atanır */
+  color: #fff;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  width: 28px;
+  height: 56px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.2s;
+  writing-mode: vertical-rl;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  padding: 0;
+}
+#hyp-panel-toggle-btn:hover { filter: brightness(0.8); }
+/* Panel açıkken sola kayar; translateY(-50%) baz transform'u korunmalı */
+#hyp-panel-toggle-btn.panel-acik { transform: translateY(-50%) translateX(-360px); }
+#hyp-panel-toggle-btn.panel-acik:hover { filter: brightness(0.8); }
+
+/* ---------- Ana Panel ---------- */
+#hyp-tarama-panel {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  width: 360px;
+  background: #ffffff;
+  border-left: 2px solid #e8ecf0;
+  display: flex;
+  flex-direction: column;
+  z-index: 99997;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 13px;
+  color: #2c3e50;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+#hyp-tarama-panel.panel-acik {
+  transform: translateX(0);
+}
+
+/* ---------- Header — position:fixed, topbar konumuna JS ile hizalanır ---------- */
+/* top ve height değerleri JS tarafından .topbar getBoundingClientRect() ile atanır.
+   Buradaki değerler JS çalışana kadar geçici fallback'tir. */
+#hyp-panel-header {
+  position: fixed;
+  right: 0;
+  top: 0;       /* JS ile güncellenir */
+  height: 60px; /* JS ile güncellenir */
+  width: 360px;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  z-index: 99998;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+}
+
+#hyp-panel-header.panel-acik {
+  transform: translateX(0);
+}
+
+/* ---------- Topbar Items Kayma ---------- */
+ul.topbar-items {
+  transition: transform 0.3s ease;
+}
+
+.hyp-topbar-shifted {
+  transform: translateX(-360px) !important;
+}
+
+.hyp-panel-icon { font-size: 18px; }
+
+.hyp-panel-title {
+  font-weight: 600;
+  font-size: 13px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #ffffff !important;
+}
+
+/* ---------- Ayarlar Butonu (Header'da) ---------- */
+.hyp-ayarlar-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 5px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.hyp-ayarlar-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ---------- Body ---------- */
+#hyp-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+#hyp-panel-body::-webkit-scrollbar { width: 5px; }
+#hyp-panel-body::-webkit-scrollbar-track { background: #f0f0f0; }
+#hyp-panel-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+/* ---------- Yükleniyor ---------- */
+.hyp-yukleniyor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: #999;
+  gap: 12px;
+}
+
+.hyp-spinner {
+  width: 28px; height: 28px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #e74c3c;
+  border-radius: 50%;
+  animation: hyp-spin 0.8s linear infinite;
+}
+
+@keyframes hyp-spin { to { transform: rotate(360deg); } }
+
+/* ---------- Özet Kutular ---------- */
+.hyp-ozet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.hyp-ozet-kutu {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 6px;
+  text-align: center;
+  border: 1px solid #e8ecf0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.hyp-ozet-kutu.hyp-ozet-tamam {
+  background: #f0fff4;
+  border-color: #27ae60;
+}
+
+.hyp-ozet-kutu.hyp-ozet-yesil {
+  background: #f0fff4;
+  border-color: #27ae60;
+}
+.hyp-ozet-kutu.hyp-ozet-yesil .hyp-ozet-sayi { color: #27ae60; }
+
+.hyp-ozet-kutu.hyp-ozet-mavi {
+  background: #eaf4fd;
+  border-color: #2980b9;
+}
+.hyp-ozet-kutu.hyp-ozet-mavi .hyp-ozet-sayi { color: #2980b9; }
+
+.hyp-ozet-kutu.hyp-ozet-kirmizi {
+  background: #fdf0f0;
+  border-color: #e74c3c;
+}
+.hyp-ozet-kutu.hyp-ozet-kirmizi .hyp-ozet-sayi { color: #e74c3c; }
+
+.hyp-ozet-sayi {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e74c3c;
+  line-height: 1.2;
+}
+
+.hyp-ozet-tamam .hyp-ozet-sayi { color: #27ae60; }
+.hyp-ozet-etiket { font-size: 10px; color: #888; margin-top: 2px; }
+
+/* ---------- Kaynak Bilgisi ---------- */
+.hyp-sina-bilgi {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background: #fff;
+  border: 1px solid #e8ecf0;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+/* ---------- Kartlar ---------- */
+.hyp-kart {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 7px;
+  border-left: 3px solid #e74c3c;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.hyp-kart-tamam { border-left-color: #27ae60; background: #f9fffe; }
+.hyp-kart-mavi  { border-left-color: #2980b9; }
+.hyp-kart-gri   { border-left-color: #ccc; }
+
+.hyp-kart-baslik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.hyp-kart-tur {
+  font-weight: 700;
+  font-size: 13px;
+  color: #2c3e50;
+}
+
+.hyp-kart-rozet {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.hyp-kart-rozet.mavi    { background: #eaf4fd; color: #2980b9; }
+.hyp-kart-rozet.yesil   { background: #eafaf1; color: #27ae60; }
+.hyp-kart-rozet.gri     { background: #f0f0f0; color: #999; }
+.hyp-kart-rozet.kirmizi {
+  background: #fdf0f0; color: #e74c3c;
+  animation: hyp-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes hyp-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+/* ---------- Progress ---------- */
+.hyp-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.hyp-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hyp-progress-dolu {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.hyp-progress-dolu.mavi    { background: linear-gradient(90deg, #2980b9, #3498db); }
+.hyp-progress-dolu.yesil   { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.hyp-progress-dolu.kirmizi { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+.hyp-progress-dolu.gri     { background: #ddd; }
+
+.hyp-progress-yuzde {
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 34px;
+  text-align: right;
+}
+.hyp-progress-yuzde.mavi    { color: #2980b9; }
+.hyp-progress-yuzde.yesil   { color: #27ae60; }
+.hyp-progress-yuzde.kirmizi { color: #e74c3c; }
+.hyp-progress-yuzde.gri     { color: #aaa; }
+
+/* ---------- Kart Detay ---------- */
+.hyp-kart-detay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  font-size: 11px;
+  color: #888;
+}
+
+.hyp-kart-detay b { color: #2c3e50; }
+
+/* ---------- Hata / Boş Durum ---------- */
+.hyp-hata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.hyp-hata-ikon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.hyp-hata-mesaj {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.hyp-hata-aciklama {
+  font-size: 11px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.hyp-hata-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  padding: 6px 16px;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Poppins', Arial, sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.hyp-hata-btn:hover { background: #1f6ea0; color: #fff; }
+
+/* ---------- SINA-only Ayracı (Otizm + 3 Kanser) ---------- */
+.hyp-sina-only-ayrac {
+  border-top: 1px dashed #d0d0d0;
+  margin: 10px 0 6px;
+  padding-top: 6px;
+}
+
+.hyp-sina-only-uyari {
+  display: block;
+  font-size: 10px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ---------- Footer ---------- */
+#hyp-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: #fff;
+  border-top: 1px solid #e8ecf0;
+  flex-shrink: 0;
+}
+
+#hyp-ay-secici {
+  font-size: 11px;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 3px 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  max-width: 130px;
+}
+#hyp-ay-secici:focus { outline: none; border-color: #29385c; }
+
+#hyp-panel-yenile {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#hyp-panel-yenile:hover { background: #e8e8e8; }
+
